@@ -1,6 +1,10 @@
+import { DevRoad } from "./dev-road";
+
 export class DevPlayer {
     private mile:number;
     private lane:number;
+
+    private road:DevRoad; 
 
     /**
      * Moves the player a specified distance on its active road.
@@ -17,8 +21,11 @@ export class DevPlayer {
      */
     public changeLanes(direction:DevPlayer.LaneChangeDirection) {
         const sign = Math.sign(this.lane) // -1 if traveling south, 1 if traveling north
-        const newLane = Math.abs(this.lane) + (direction == DevPlayer.LaneChangeDirection.Left ? -1 : 1); // move 1 closer to the inside if left, one closer to the outside if right
-        this.lane = sign * newLane; // reapply traveling direction 
+        const newLane = sign * (Math.abs(this.lane) + (direction == DevPlayer.LaneChangeDirection.Left ? -1 : 1)); // move one closer to the inside if left, one closer to the outside if right
+        
+        if (!this.road.isValidPosition(this.mile, newLane)) return; // validate
+
+        this.lane = sign * newLane;
     }
 }
 
