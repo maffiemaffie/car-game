@@ -6,7 +6,17 @@ export class DevPlayer {
 
     private road:DevRoad; 
 
-    public constructor() {}
+    /**
+     * Initializes a new instance of the {@link DevPlayer} class.
+     * @param road The road that the player car should start on.
+     * @param mile The mile coordinate of the player's initial position. Default is 0.
+     * @param lane The lane coordinate of the player's initial position. Default is the left-most lane, travelling north.
+     */
+    public constructor(road:DevRoad, mile:number = 0, lane:number = 1) {
+        this.mile = mile;
+        this.lane = lane;
+        this.road = road;
+    }
 
     /**
      * Moves the player a specified distance on its active road.
@@ -28,6 +38,10 @@ export class DevPlayer {
         if (!this.road.isValidPosition(this.mile, newLane)) return; // validate
 
         this.lane = sign * newLane;
+    }
+
+    public sayLocation() {
+        console.log(`mile: ${this.mile}, lane: ${this.lane}`);
     }
 }
 
