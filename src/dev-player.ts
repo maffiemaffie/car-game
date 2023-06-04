@@ -6,6 +6,8 @@ export class DevPlayer {
 
     private road:DevRoad; 
 
+    public constructor() {}
+
     /**
      * Moves the player a specified distance on its active road.
      * @param distance Distance forward (positive) or backward (negative) to move the player.
