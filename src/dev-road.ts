@@ -1,5 +1,5 @@
 export class DevRoad {
-    constructor() {}
+    public constructor() {}
 
     /**
      * Tests if a specified position can be occupied.
