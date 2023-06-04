@@ -9,7 +9,7 @@
     "webpack": "^5.85.0",
     "webpack-cli": "^5.1.1"
   },
-  "name": "my-webpack-project",
+  "name": "car-game",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -30,5 +30,5 @@
     "url": "https://github.com/maffiemaffie/car-game/issues"
   },
   "homepage": "https://github.com/maffiemaffie/car-game#readme",
-  "description": "My webpack project"
+  "description": "car-game"
 }
